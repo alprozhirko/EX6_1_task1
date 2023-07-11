@@ -35,7 +35,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        if (name == null || surname == null || OptionalInt.of(getAge()).isEmpty() || city == null) {
+        if (name == null || surname == null || OptionalInt.of(age).isEmpty() || city == null) {
             throw new IllegalStateException("Необходимо заполнить все параметры класса");
         } else {
             person = new Person(name, surname, age, city);
