@@ -1,11 +1,12 @@
 import java.util.Objects;
 import java.util.OptionalInt;
 
-public class Person extends PersonBuilder {
+public class Person {
     protected final String name;
     protected final String surname;
     protected int age;
     protected String city;
+    protected PersonBuilder personBuilder = new PersonBuilder();
 
 //    public Person(PersonBuilder personBuilder) {
 //        this.name = personBuilder.name;
@@ -13,7 +14,6 @@ public class Person extends PersonBuilder {
 //        this.age = personBuilder.age;
 //        this.city = personBuilder.city;
 //    }
-
 
     public Person(String name, String surname) {
         this.name = name;
@@ -33,7 +33,6 @@ public class Person extends PersonBuilder {
         this.age = age;
         this.city = city;
     }
-
 
     public String getName() {
         return name;
@@ -81,7 +80,7 @@ public class Person extends PersonBuilder {
     }
 
     public PersonBuilder newChildBuilder() {
-        PersonBuilder personBuilder = new PersonBuilder()
+        personBuilder
                 .setName(name)
                 .setSurname(this.surname)
                 .setAge(0)
@@ -90,4 +89,3 @@ public class Person extends PersonBuilder {
         return personBuilder;
     }
 }
-

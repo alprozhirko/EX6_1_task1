@@ -1,11 +1,14 @@
+import java.util.Optional;
+import java.util.OptionalInt;
+
 public class PersonBuilder {
     protected String name;
     protected String surname;
     protected int age;
     protected String city;
+    protected Person person;
 
     public PersonBuilder() {
-
     }
 
     public PersonBuilder setName(String name) {
@@ -32,11 +35,11 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        Person person = null;
-        if (name == null || surname == null || setAge(age)==null || city == null) {
+        if (name == null || surname == null || OptionalInt.of(getAge()).isEmpty() || city == null) {
             throw new IllegalStateException("Необходимо заполнить все параметры класса");
         } else {
-        person = new Person(name, surname, age, city);
+            person = new Person(name, surname, age, city);
+//            person = new Person(this);
         }
         return person;
     }
