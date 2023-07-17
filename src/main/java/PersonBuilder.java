@@ -1,10 +1,9 @@
-import java.util.Optional;
 import java.util.OptionalInt;
 
 public class PersonBuilder {
     protected String name;
     protected String surname;
-    protected int age;
+    private int age;
     protected String city;
     protected Person person;
 
@@ -39,7 +38,6 @@ public class PersonBuilder {
             throw new IllegalStateException("Необходимо заполнить все параметры класса");
         } else {
             person = new Person(name, surname, age, city);
-//            person = new Person(this);
         }
         return person;
     }

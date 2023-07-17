@@ -8,13 +8,6 @@ public class Person {
     protected String city;
     protected PersonBuilder personBuilder = new PersonBuilder();
 
-//    public Person(PersonBuilder personBuilder) {
-//        this.name = personBuilder.name;
-//        this.surname = personBuilder.surname;
-//        this.age = personBuilder.age;
-//        this.city = personBuilder.city;
-//    }
-
     public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
@@ -24,7 +17,6 @@ public class Person {
         this.name = name;
         this.surname = surname;
         this.age = age;
-
     }
 
     public Person(String name, String surname, int age, String city) {
@@ -51,7 +43,7 @@ public class Person {
     }
 
     public boolean hasAge() {
-        return getAge().isPresent();
+        return OptionalInt.of(age).isPresent();
     }
 
     public boolean hasAddress() {
